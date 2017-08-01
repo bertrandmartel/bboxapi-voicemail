@@ -36,9 +36,9 @@ import org.apache.logging.log4j.Logger;
  *
  * @author Bertrand Martel
  */
-public class setSmsNotification {
+public class SetSmsNotification {
 
-    private final static Logger LOGGER = LogManager.getLogger(setSmsNotification.class.getName());
+    private final static Logger LOGGER = LogManager.getLogger(SetSmsNotification.class.getName());
 
     public static void main(String[] args) {
 

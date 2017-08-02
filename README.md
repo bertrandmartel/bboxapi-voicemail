@@ -29,7 +29,7 @@ All APIs need authentication via :
 ```java
 VoiceMailApi api = new VoiceMailApi();
 
-ApiResponse loginResponse = api.login("username@bbox.fr", "password");
+api.login("username@bbox.fr", "password");
 ```
 
 This will only work with your `@bbox` account (no such service for mobile)
@@ -49,7 +49,7 @@ compile 'fr.bmartel:bboxapi-voicemail:1.0.0'
 This will store the welcome message to a local file. The following will store the welcome message with id 1 under `/home/user/message.wav` : 
 
 ```java
-ApiResponse response = api.getWelcomeMessage(1, "/home/user/message.wav");
+api.getWelcomeMessage(1, "/home/user/message.wav");
 ```
 
 ### Upload welcome message
@@ -57,26 +57,26 @@ ApiResponse response = api.getWelcomeMessage(1, "/home/user/message.wav");
 The following will upload `/home/user/message2.mp3` as the welcome message with id 2 and select the welcome message with id 2 :
 
 ```java
-ApiResponse response = api.uploadWelcomeMessage("/home/user/message2.mp3", 2, 2);
+api.uploadWelcomeMessage("/home/user/message2.mp3", 2, 2);
 ```
 
 ### Set dual call state
 
 ```java
-ApiResponse response = api.setDualCallState(DualCallState.ENABLE);
+api.setDualCallState(DualCallState.ENABLE);
 ```
 
 ### Set incognito mode
 
 ```java
-ApiResponse response = api.setIncognitoMode(IncognitoState.DISABLE);
+api.setIncognitoMode(IncognitoState.DISABLE);
 ```
 
 ### Set SMS notification
 
 enable SMS notification to specified phone number on new voicemail and on missed call : 
 ```java
-ApiResponse response = api.setVoiceMailSMS(NotificationState.ENABLE, NotificationState.ENABLE, "0123456789");
+api.setVoiceMailSMS(NotificationState.ENABLE, NotificationState.ENABLE, "0123456789");
 ```
 
 ### Set voicemail state
@@ -84,7 +84,7 @@ ApiResponse response = api.setVoiceMailSMS(NotificationState.ENABLE, Notificatio
 enable/disable voicemail and set the ring number (default 5)
 
 ```java
-ApiResponse response = api.setVoiceMailState(VoiceMailState.ENABLE, 5);
+api.setVoiceMailState(VoiceMailState.ENABLE, 5);
 ```
 
 ### Set welcome message state
@@ -92,7 +92,7 @@ ApiResponse response = api.setVoiceMailState(VoiceMailState.ENABLE, 5);
 enable/disable welcome message : 
 
 ```java
-ApiResponse response = api.setWelcomeMessageState(WelcomeMessageState.ENABLE);
+api.setWelcomeMessageState(WelcomeMessageState.ENABLE);
 ```
 
 ## Other APIs
@@ -122,13 +122,13 @@ if (voiceMailResponse.getStatus() == HttpStatus.OK) {
 ### Delete voicemail
 
 ```java
-ApiResponse response = api.deleteVoiceMail("1234567");
+api.deleteVoiceMail("1234567");
 ```
 
 ### Get user info
 
 ```java
-UserInfo userInfo = api.getCustomerInfo();
+api.getCustomerInfo();
 ```
 
 ### Forward call
@@ -136,37 +136,37 @@ UserInfo userInfo = api.getCustomerInfo();
 disable forward call
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.DISABLE, "");
+api.setCallForwarding(CallForwardType.DISABLE, "");
 ```
 
 forward all call to voicemail : 
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.ALL_TO_VOICEMAIL, "");
+api.setCallForwarding(CallForwardType.ALL_TO_VOICEMAIL, "");
 ```
 
 forward all call to phone number : 
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.ALL_TO_NUMBER, "0123456789");
+api.setCallForwarding(CallForwardType.ALL_TO_NUMBER, "0123456789");
 ```
 
 forward unanswered call to phone number : 
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.UNANSWERED_CALL_TO_NUMBER, "0123456789");
+api.setCallForwarding(CallForwardType.UNANSWERED_CALL_TO_NUMBER, "0123456789");
 ```
 
 forward call to phone number when line is occupied : 
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.LINE_OCCUPIED_TO_NUMBER, "0123456789");
+api.setCallForwarding(CallForwardType.LINE_OCCUPIED_TO_NUMBER, "0123456789");
 ```
 
 forward call to pĥone number when line is unavailable : 
 
 ```java
-ApiResponse response = api.setCallForwarding(CallForwardType.LINE_UNAVAILABLE_TO_NUMBER, "0123456789");
+api.setCallForwarding(CallForwardType.LINE_UNAVAILABLE_TO_NUMBER, "0123456789");
 ```
 
 ## Android integration
